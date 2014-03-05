@@ -10,20 +10,33 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Header</th>
-          <th>Header</th>
-          <th>Header</th>
-          <th>Header</th>
+          <th>User id</th>
+          <th>homedir</th>
+          <th>Login count</th>
+          <th>Last access</th>
+          <th>Last updated</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
+        @foreach ($users as $usr)
         <tr>
-          <td>1,001</td>
-          <td>Lorem</td>
-          <td>ipsum</td>
-          <td>dolor</td>
-          <td>sit</td>
+          <td>{{$usr->id}}</td>
+          <td>{{$usr->user_id}}</td>
+          <td>{{$usr->homedir}}</td>
+          <td>{{$usr->count}}</td>
+          <td>{{$usr->accessed}}</td>
+          <td>{{$usr->modified}}</td>
+          <td>
+            <a href="/users/edit/{{$usr->id}}" class="btn btn-danger btn-xs">
+              Delete
+            </a>
+            <a href="/users/delete/{{$usr->id}}" class="btn btn-warning btn-xs">
+              Edit
+            </a>
+          </td>
         </tr>
+        @endforeach
       </tbody>
     </table>
   </div>

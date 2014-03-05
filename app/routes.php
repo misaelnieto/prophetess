@@ -18,5 +18,23 @@ Route::get('/', function()
 
 Route::get('users', function()
 {
-    return View::make('users');
+    $ftp_users = FTPUser::all();
+
+    return View::make('users')->with('users', $ftp_users);
 });
+
+Route::get('/users/add', function()
+{
+    return View::make('add_user');
+});
+
+Route::get('/users/remove/<pk>', function()
+{
+    return View::make('remove_user');
+});
+
+Route::get('/users/edit/<pk>', function()
+{
+    return View::make('edit_user');
+});
+

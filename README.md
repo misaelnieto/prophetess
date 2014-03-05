@@ -8,4 +8,4 @@ It's just a simple CRUD to manage users
 
 Install on Fedora 20:
 
-sudo yum install php php-mcrypt php-pdo
+sudo yum install php php-mcrypt php-pdo mariadb mariadb-server php-pdo php-mysqlnd
