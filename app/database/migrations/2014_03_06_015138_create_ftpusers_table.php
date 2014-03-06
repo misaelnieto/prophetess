@@ -12,7 +12,7 @@ class CreateFtpusersTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('ftp_users', function($table)
+        Schema::create('ftp_users', function(Blueprint $table)
         {
             $table->increments('id');
             $table->string('user_id')->unique();
