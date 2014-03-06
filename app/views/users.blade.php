@@ -28,10 +28,10 @@
           <td>{{$usr->accessed}}</td>
           <td>{{$usr->modified}}</td>
           <td>
-            <a href="/users/edit/{{$usr->id}}" class="btn btn-danger btn-xs">
+            <a href="/users/delete/{{$usr->id}}" class="btn btn-danger btn-xs">
               Delete
             </a>
-            <a href="/users/delete/{{$usr->id}}" class="btn btn-warning btn-xs">
+            <a href="/users/edit/{{$usr->id}}" class="btn btn-warning btn-xs">
               Edit
             </a>
           </td>
