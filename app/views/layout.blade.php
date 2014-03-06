@@ -124,7 +124,7 @@ body {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">ProFTPd</a>
+          <a class="navbar-brand" href="{{ URL::to('/') }}">ProFTPd</a>
         </div>
         <div class="collapse navbar-collapse bs-example-js-navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -133,10 +133,10 @@ body {
                   <i class="glyphicon glyphicon-cog"></i> Actions <b class="caret"></b>
               </a>
               <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="/users">Users list</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="/users/add">Add user</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ URL::to('/users') }}">Users list</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ URL::to('/users/add') }}">Add user</a></li>
                 <li role="presentation" class="divider"></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Logout</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ URL::to('/logout')}}">Logout</a></li>
               </ul>
             </li>
           </ul>
