@@ -1,12 +1,13 @@
 @extends('layout')
 
 @section('title')
-    Users
+    Add User
 @stop
 
 @section('content')
 <h2>Add user...</h2>
-<form action="." method="POST" role="form">
+  {{ Form::open(array('url'=>'/users/add', 'role' => 'form')) }}
+
     <div class="form-group">
         <label for="user_id">User id</label>
         <input type="text" name="user_id" class="form-control" placeholder="Enter user id">
@@ -32,5 +33,5 @@
         <input type="text" name="homepath" class="form-control" placeholder="Path to home directory">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
-</form>
+  {{ Form::close() }}
 @stop
