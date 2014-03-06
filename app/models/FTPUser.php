@@ -8,7 +8,7 @@ class FTPUser extends Eloquent {
      *
      * @var string
      */
-    protected $table = 'ftp_user';
+    protected $table = 'ftp_users';
 
     /**
      * The attributes excluded from the model's JSON form.

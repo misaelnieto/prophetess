@@ -15,9 +15,14 @@ class CreateFtpusersTable extends Migration {
         Schema::create('ftp_users', function($table)
         {
             $table->increments('id');
-            $table->string('email');
-            $table->string('name')->unique();
-            $table->string('secret');
+            $table->string('user_id')->unique();
+            $table->string('passwd');
+            $table->integer('uid');
+            $table->integer('gid');
+            $table->string('home_dir');
+            $table->string('shell');
+            $table->integer('count');
+            $table->timestamp('accessed_at');
             $table->timestamps();
         });
 	}
