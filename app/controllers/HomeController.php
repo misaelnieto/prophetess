@@ -4,7 +4,6 @@ class HomeController extends BaseController {
 
     public function showIndex()
     {
-        print_r(Auth::check());
         if (Auth::check())
         {
             return Redirect::intended('users');
@@ -18,6 +17,10 @@ class HomeController extends BaseController {
     }
 
     public function doLogin () {
+        if (Auth::check()) {
+            return Redirect::to('users');
+        }
+
         // validate the info, create rules for the inputs
         $rules = array(
             'user_id'    => 'required|alphaNum', // make sure the email is an actual email
@@ -35,10 +38,11 @@ class HomeController extends BaseController {
         } else {
             // create our user data for the authentication
             $userdata = array(
-                'email'     => Input::get('email'),
+                'user_id'     => Input::get('user_id'),
                 'password'  => Input::get('password')
             );
 
+            Log::info('Attempt auth', array('context' => $userdata));
             if (Auth::attempt($userdata)) {
                 return Redirect::to('users');
             } else {

@@ -10,7 +10,7 @@ class DefaultAdminSeeder extends Seeder
             'name'     => 'Administrator',
             'user_id' => 'admin',
             'email'    => 'admin@example.com',
-            'secret' => Hash::make('admin'),
+            'password' => Hash::make('admin'),
         ));
     }
 
