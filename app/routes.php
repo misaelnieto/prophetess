@@ -1,40 +1,33 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
 
-Route::get('users', function()
-{
-    $ftp_users = FTPUser::all();
+//////////////////////////////////////////////////////////////////////////////
+// Routes for autentication system
 
-    return View::make('users')->with('users', $ftp_users);
-});
+Route::get('/', array('uses' => 'HomeController@showIndex'));
+Route::get('login', array('uses' => 'HomeController@showLogin'));
+Route::post('login', array('uses' => 'HomeController@doLogin'));
+Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
-Route::get('/users/add', function()
-{
-    return View::make('add_user');
-});
+//////////////////////////////////////////////////////////////////////////////
+// Routes for FtpUser CRUD
 
-Route::get('/users/remove/<pk>', function()
-{
-    return View::make('remove_user');
-});
-
-Route::get('/users/edit/<pk>', function()
-{
-    return View::make('edit_user');
-});
+Route::get(
+    'users',
+    array('before' => 'auth', 'uses' => 'FTPUsersController@getUsersList')
+);
+Route::get(
+    '/users/edit/{pk}',
+    array('before' => 'auth', 'uses' => 'FTPUsersController@editUser')
+);
+Route::match(
+    array('GET', 'POST'),
+    '/users/add',
+    array('before' => 'auth', 'uses' => 'FTPUsersController@addUser')
+);
+Route::get(
+    '/users/delete/{pk}',
+    array('before' => 'auth', 'uses' => 'FTPUsersController@deleteUser')
+);
 

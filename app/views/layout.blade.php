@@ -136,7 +136,7 @@ body {
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ URL::to('/users') }}">Users list</a></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ URL::to('/users/add') }}">Add user</a></li>
                 <li role="presentation" class="divider"></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ URL::to('/logout')}}">Logout</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ URL::to('logout')}}">Logout</a></li>
               </ul>
             </li>
           </ul>
